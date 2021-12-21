@@ -106,7 +106,7 @@ class AdopcionController extends Controller
         $tipoAnimal = $request->post("tipoAnimal");
         $raza = $request->post("raza");
         $sexo = $request->post("sexo");
-        $tamanio = $request->post("tamanio");
+        $size = $request->post("tamanio");
         $foto = $request->post("foto");
         $estado = $request->post("descripcion");
         $edad = $request->post("edad");
@@ -128,7 +128,7 @@ class AdopcionController extends Controller
                 "raza" => $raza,
                 "sexo" => $sexo,
                 "aprobado" => $noAprobado,
-                "tamanio" => $tamanio,
+                "tamanio" => $size,
                 "foto" => $foto,
                 "estado" => $estado,
                 "edad" => intval($edad)
@@ -138,7 +138,7 @@ class AdopcionController extends Controller
 
         }catch(Exception){
 
-            return redirect('/adopciones/nueva');
+            echo "hay un error";
         }
         
 

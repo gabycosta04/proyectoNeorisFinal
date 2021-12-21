@@ -1,37 +1,26 @@
 @extends('layout')
 
+@section('header')
+    <section class="textos-header">
+        <h1>Inicia tu sesión</h1>
+        <h2> ¡Nos alegra verte de nuevo! </h2>
+    </section>
+@endsection
+
 @section('contenidoPrincipal')
 
     <section>
-        
-            <h2 align="center">Inicio de Sesión</h2>
-            
+    
+        <section class="form-register">
             <form name="login-form" class="login-form" action="" method="post">
-                @csrf
-                <table align="center">
-                    <tr>
-                        <td>
-                            <input name="username" type="text" class="input username" placeholder="Usuario" required/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input name="password" type="password" class="input password" placeholder="Contraseña" required/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="center">
-                            <a href="/proyectoNeoris/proyectoWEB/public/register">Registrarme</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="center">
-                            <input type="submit" name="submit" value="Ingresar" class="button"/>
-                        </td>
-                    </tr>
-                </table>
+            @csrf
+                <h4>¡Inicia sesión!</h4>
+                <input class="controls" type="username" name="username" id="username" placeholder="Ingrese su Username">
+                <input class="controls" type="password" name="password" id="password" placeholder="Ingrese su Contraseña">
+                <input class="botons" type="submit" value="Iniciar Sesión">
+                <p><a href="/proyectoNeoris/proyectoNeorisFinal/proyectoWEB/public/register">¿No tienes una cuenta? Registrate</a></p>
             </form>
-            
-    </section>
+        </section>
+    </section>    
 
 @endsection

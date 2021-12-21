@@ -1,82 +1,32 @@
 @extends('layout')
 
+@section('header')
+    <section class="textos-header">
+        <h1>¡Regístrate!</h1>
+        <h2> Bienvenido al placer de brindarle hogar a las mascotas </h2>
+    </section>
+@endsection
+
+
 @section('contenidoPrincipal')
 
     <section>
-            <h2 align="center">Registrarme</h2>
-            <form name="registrarUsuario-form" class="registrarUsuario-form" action="/proyectoNeoris/proyectoWEB/public/login" method="post">
-                @csrf
-                <br>
-                <table align="center">
-                    <div class="datos de user"> 
-                        <h6 align="center">Datos de Usuario</h6>                   
-                        <tr>
-                            <td>
-                                <label>Username:</label>
-                                <input name="username" type="username" class="input username" placeholder="Usuario del usuario" required/>
-                            </td>
-                        </tr>
-                        <tr>
-                        <tr>
-                            <td>
-                                <label>Password:</label>
-                                <input name="password" type="password" class="input password" placeholder="Contraseña del usuario" required/>
-                            </td>
-                        </tr>
-                    </div>
-                </table>
-                <br>
-                <table align="center" >
-                <div class="datos personales">
-                    <h6 align="center">Datos Personales</h6>
-                    <tr>
-                        <td>
-                            <label>Nombre:</label>
-                            <input name="nombre" type="text" class="input nombre" placeholder="Nombre del usuario" required/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label>Apellido:</label>
-                            <input name="apellido" type="text" class="input apellido" placeholder="Apellido del usuario" required/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label>Ciudad:</label>
-                            <input name="ciudad" type="text" class="input ciudad" placeholder="Ciudad del usuario" required/>
-                        </td>
-                    </tr>
-                </div>
-                </table>
-
-                <br>
-                <table align="center">
-                <div class="datos de contacto">
-                    <h6 align="center">Datos de contacto</h6>
-                    <tr>
-                        <td>
-                            <label>E-Mail:</label>
-                            <input name="mail" type="text" class="input email" placeholder="Mail del usuario" required/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label>Telefono:</label>
-                            <input name="telefono" type="number" class="input telefono" placeholder="Telefono del usuario" required/>
-                        </td>
-                    </tr>
-                </div>
-                
-                <br>
-                <tr>
-                    <td align="center">
-                        <input type="submit" name="submit" value="Registrar" class="button"/>
-                    </td>
-                </tr>
-                </table>
-                
+        <section class="form-register">
+            <h4>¡Completa el formulario de registro!</h4>
+            <form name="registrarUsuario-form" class="registrarUsuario-form" action="/proyectoNeoris/proyectoNeorisFinal/proyectoWEB/public/register" method="post">
+            @csrf
+                <input class="controls" type="username" name="username" id="username" placeholder="Ingrese su nombre de usuario">
+                <input class="controls" type="email" name="mail" id="mail" placeholder="Ingrese su Correo">
+                <input class="controls" type="password" name="password" id="password" placeholder="Ingrese su Contraseña">
+                <br><br>
+                <input class="controls" type="text" name="nombre" id="nombre" placeholder="Ingrese su Nombre">
+                <input class="controls" type="text" name="apellido" id="apellido" placeholder="Ingrese su Apellido">
+                <input class="controls" type="text" name="ciudad" id="ciudad" placeholder="Ingrese su Ciudad">
+                <input class="controls" type="number" name="telefono" id="telefono" placeholder="Ingrese su Telefono">
+                <input class="botons" type="submit" value="Registrar">
+                <p><a href="/proyectoNeoris/proyectoNeorisFinal/proyectoWEB/public/login">¿Ya tienes una cuenta?</a></p>
             </form>
+        </section>
     </section>
 
 @endsection

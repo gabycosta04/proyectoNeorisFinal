@@ -47,13 +47,13 @@
 
             @foreach($adopciones as $adopcion)
             
-                <form name="admin-form" class="admin-form formulario" action="/proyectoNeoris/proyectoWEB/public/adopciones/administrar" method="post">
+                <form name="admin-form" class="admin-form formulario" action="/proyectoNeoris/proyectoNeorisFinal/proyectoWEB/public/adopciones/administrar" method="post">
                 @csrf
                     <tr align="center">
                         <td/>
                             <!-- esto es para que se suba en el formulario el id de la adopcion-->
                             <input type="hidden" class="btn btn-primary btn-block" name="id" id="id" value= "{{$adopcion->id}}"/>
-                            <a href="/proyectoNeoris/proyectoWEB/public/adopciones/{{ $adopcion->id }}" >{{ $adopcion->id }}</a>          
+                            <a href="/proyectoNeoris/proyectoNeorisFinal/proyectoWEB/public/adopciones/{{ $adopcion->id }}" >{{ $adopcion->id }}</a>          
                         </td>
 
                         <td>

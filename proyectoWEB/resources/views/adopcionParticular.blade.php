@@ -1,5 +1,13 @@
 @extends('layout')
 
+@section('header')
+    <section class="textos-header">
+      <h1>&#128525 ¡Tu media naranja te espera! &#128525</h1>
+      <h2 align="center">&#128075 &#128075 ¡Dile Hola a: {{$adopcion->nombre}}! &#128075 &#128075</h2>
+    </section>
+@endsection
+
+
 @section('contenidoPrincipal')
     
     <section>
