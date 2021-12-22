@@ -2,8 +2,8 @@
 
 @section('header')
     <section class="textos-header">
-      <h1>&#128525 ¡Tu media naranja te espera! &#128525</h1>
-      <h2 align="center">Dele oportunidad a una nueva mascota a entrar en tu vida</h2>
+      <h1>&#128557 ¡Hay amigos desaparecidos! &#128557</h1>
+      <h2 align="center">Si viste alguno de estos, comunicate con su dueño</h2>
     </section>
 @endsection
 
@@ -13,15 +13,15 @@
     <section>
       <section class="portafolio">
             <div class="contenedor">
-                <h2 class="titulo">BUSCAR ADOPCIONES</h2>
+                <h2 class="titulo">BUSCAR MASCOTAS PERDIDAS</h2>
                 <div class="galeria-port">
-                    @foreach($adopciones as $adopcion)
+                    @foreach($mascotas as $mascota)
 
                         <div class="imagen-port">
-                            <img src="{{ $adopcion->foto }}" alt="">
+                            <img src="{{ $mascota->foto }}" alt="">
                             <div class="hover-galeria">
                                 <img src="{{ asset('src/icono1.png') }}" alt="">
-                                <a href="/proyectoNeoris/proyectoNeorisFinal/proyectoWEB/public/adopciones/{{ $adopcion->id }}">Mas informacion</a>
+                                <a href="/proyectoNeoris/proyectoNeorisFinal/proyectoWEB/public/mascotas/perdidas/{{ $mascota->id }}">Mas informacion</a>
                             </div>
                         </div>
                     @endforeach    

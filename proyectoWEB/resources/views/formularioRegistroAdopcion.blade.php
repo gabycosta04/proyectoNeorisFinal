@@ -2,8 +2,8 @@
 
 @section('header')
     <section class="textos-header">
-      <h1>¡Registra a tu amigo peludo en el sistema!</h1>
-      <h2> Completa estos formularios para poder tener a tus mascotas en Adoptame.com </h2>
+      <h1>¡Cada vez falta menos!</h1>
+      <h2> Completa estos formularios para poder buscarle un hogar a las mascotas </h2>
     </section>
 @endsection
 
@@ -12,12 +12,12 @@
     
 
     <section>
-          <form name="registrarMascota-form" class="registrarMascota-form formulario" action="/proyectoNeoris/proyectoNeorisFinal/proyectoWEB/public/mascotas" method="post">
+          <form name="registrarAdopcion-form" class="registrarAdopcion-form formulario" action="/proyectoNeoris/proyectoNeorisFinal/proyectoWEB/public/adopciones" method="post">
           @csrf
 
             <section class="form-registerperson">
-              <h4>¡Completa el formulario de la mascota!</h4>
-              <h5>Ingresa los datos de la mascota</h5>
+              <h4>¡Completa el formulario de la adopcion!</h4>
+              <h5>Ingresa los datos de la mascota a dar en adopcion</h5>
 
               <div class="form-group">
                 <input class="controls" type="text" name="nombre" id="nombre" placeholder="Nombre de la mascota">
@@ -55,6 +55,9 @@
               </select>
               </div>
               
+              <div class="form-group">
+                <input name="descripcion" id="descripcion" type="text" class="controls" placeholder="Descripcion sobre la mascota">
+              </div>
               
               <div class="form-group">
                 <input name="edad" id="edad" type="number" class="controls" placeholder="Edad actual en años de la mascota">

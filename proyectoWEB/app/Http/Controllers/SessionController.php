@@ -67,8 +67,16 @@ class SessionController extends Controller
             ->where("username","=", $usuario)
             ->get();
 
+        $persona = $usuarioCreado->last();
+        
+        $id = $persona->id;
+
+
         if(count($usuarioCreado) > 0){
             $request->session()->put('username',$usuario);
+            /* esto lo voy a usar para mostrar las mascotas de un cierto usuario */
+            $request->session()->put('id',$id);
+
             if(count($usuarioAdmin) > 0){
                 $request->session()->put('admin',$usuario);
             }

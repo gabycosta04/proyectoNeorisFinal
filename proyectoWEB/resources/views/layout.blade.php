@@ -28,8 +28,9 @@
                 <a class="nav-item nav-link" href="/proyectoNeoris/proyectoNeorisFinal/proyectoWEB/public">Inicio</a>
                 <a class="nav-item nav-link" href="/proyectoNeoris/proyectoNeorisFinal/proyectoWEB/public/adopciones">Adopciones</a>
                 <a class="nav-item nav-link" href="/proyectoNeoris/proyectoNeorisFinal/proyectoWEB/public/adopciones/nueva">Subir adopcion</a>
+
                 <a class="nav-item nav-link" href="/proyectoNeoris/proyectoNeorisFinal/proyectoWEB/public/mascotas">Mascotas</a>
-                <a class="nav-item nav-link" href="/proyectoNeoris/proyectoNeorisFinal/proyectoWEB/public/mascotas/nueva">Registrar Mascota</a>
+                <a class="nav-item nav-link" href="/proyectoNeoris/proyectoNeorisFinal/proyectoWEB/public/mascotas/perdidas">Mascotas Perdidas</a>
 
                 @if($sesion)
                     <a class="nav-item nav-link" href="/proyectoNeoris/proyectoNeorisFinal/proyectoWEB/public">Bienvenido usuario: {{$username}}</a>

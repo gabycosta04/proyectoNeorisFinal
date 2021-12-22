@@ -91,7 +91,7 @@ class AdopcionController extends Controller
         ];
         
         if($sesionIniciada){
-            return view('formularioRegistroMascota', $parametros);
+            return view('formularioRegistroAdopcion', $parametros);
         }else{
             return redirect('/login');
         }
@@ -140,8 +140,5 @@ class AdopcionController extends Controller
 
             echo "hay un error";
         }
-        
-
-        
     }
 }
