@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="{{ asset('css/iniciarsesión.css') }}">
         <link rel="stylesheet" href="{{ asset('css/formulario.css') }}">
         <link rel="stylesheet" href="{{ asset('css/subirmascota.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/buscarmascotas.css') }}">
         <link rel = "preconnect" href = "https://fonts.googleapis.com">
         <link rel = "preconnect" href = "https://fonts.gstatic.com" crossorigin>
         <link href = "https: //fonts.googleapis.com/css2? family = Open + Sans: wght @ 300 & display = swap "rel =" stylesheet ">

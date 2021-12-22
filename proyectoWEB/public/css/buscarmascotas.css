@@ -96,3 +96,10 @@ footer{
     color: #9e979797;
 }
 
+
+
+.hover-galeria a {
+    color:#00A0C6; 
+    text-decoration:none; 
+    cursor:pointer;
+}

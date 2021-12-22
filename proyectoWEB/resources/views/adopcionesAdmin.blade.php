@@ -1,8 +1,13 @@
-
-
-
-
 @extends('layout')
+
+@section('header')
+    <section class="textos-header">
+      <h1>¡Toma el poder y controla que todo sea correcto!</h1>
+      <h2 align="center">Llego el momento de validar publicaciones &#129299</h2>
+    </section>
+@endsection
+
+
 
 @section('css')
 <link href="{{ asset('/css/admin.css') }}" rel="stylesheet" type="text/css">

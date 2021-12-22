@@ -9,25 +9,25 @@
 
 
 @section('contenidoPrincipal')
-    
-
+     
     <section>
-      <h2 align="center">ADOPCIONES DISPONIBLES</h2>
-      
-        
-        @foreach($adopciones as $adopcion)
-        <div class="mascota">
-            <img src="{{ $adopcion->foto }}" width="200" height="200">
+      <section class="portafolio">
+            <div class="contenedor">
+                <h2 class="titulo">BUSCAR MASCOTAS</h2>
+                <div class="galeria-port">
+                    @foreach($adopciones as $adopcion)
 
-            <div class="datos">
-                <h6>Nombre: {{$adopcion->nombre}}</h6>
-                <h6>Tipo de animal: {{$adopcion->tipoAnimal}}</h6>
-                <h6>Descripcion: {{$adopcion->estado}}</h6>
+                        <div class="imagen-port">
+                            <img src="{{ $adopcion->foto }}" alt="">
+                            <div class="hover-galeria">
+                                <img src="{{ asset('src/icono1.png') }}" alt="">
+                                <a href="/proyectoNeoris/proyectoNeorisFinal/proyectoWEB/public/adopciones/{{ $adopcion->id }}">Mas informacion</a>
+                            </div>
+                        </div>
+                    @endforeach    
+                    
+                </div>
             </div>
-
-            <a href="/proyectoNeoris/proyectoNeorisFinal/proyectoWEB/public/adopciones/{{ $adopcion->id }}" >Mas informacion</a>
-        </div> 
-        @endforeach
-            
+        </section>
     </section>
 @endsection
