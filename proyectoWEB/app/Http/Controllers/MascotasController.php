@@ -17,25 +17,25 @@ class MascotasController extends Controller
         $usuarioAdmin = $request->session()->has('admin');
         $username = $request->session()->get('username','default');
         $id = $request->session()->get('id','-1');
-        
+
         $mascotas = DB::table("mascotas")
             ->where("id_usuarioDuenio" ,"=",$id)
             ->get();
-        
+
         $parametros =[
             'sesion' => $sesionIniciada,
             'username' => $username,
             'admin' => $usuarioAdmin,
             'mascotas' => $mascotas
         ];
-        
+
         if($sesionIniciada){
             return view('mascotas', $parametros);
         }else{
             return redirect('/login');
         }
 
-        
+
     }
 
 
@@ -45,25 +45,25 @@ class MascotasController extends Controller
         $sesionIniciada = $request->session()->has('username');
         $usuarioAdmin = $request->session()->has('admin');
         $username = $request->session()->get('username','default');
-        
+
         $mascotas = DB::table("mascotas")
             ->where("perdido","=", 1)
             ->get();
-        
+
         $parametros =[
             'sesion' => $sesionIniciada,
             'username' => $username,
             'admin' => $usuarioAdmin,
             'mascotas' => $mascotas
         ];
-        
+
         if($sesionIniciada){
             return view('mascotasPerdidas', $parametros);
         }else{
             return redirect('/login');
         }
 
-        
+
     }
 
 
@@ -73,12 +73,12 @@ class MascotasController extends Controller
         $sesionIniciada = $request->session()->has('username');
         $usuarioAdmin = $request->session()->has('admin');
         $username = $request->session()->get('username','default');
-        
+
         $mascotas = DB::table("mascotas")
             ->where("perdido","=", 1)
             ->where("id", "=", $id)
             ->get();
-        
+
         $mascota = $mascotas->last();
 
         $duenios = DB::table("usuarios")
@@ -95,14 +95,14 @@ class MascotasController extends Controller
             'mascota' => $mascota,
             'duenio' => $duenio
         ];
-        
+
         if($sesionIniciada){
             return view('mascotaPerdidaParticular', $parametros);
         }else{
             return redirect('/login');
         }
 
-        
+
     }
 
 
@@ -111,24 +111,24 @@ class MascotasController extends Controller
 
         $sesionIniciada = $request->session()->has('username');
         $usuarioAdmin = $request->session()->has('admin');
-        $username = $request->session()->get('username','default'); 
+        $username = $request->session()->get('username','default');
         $idDuenio = $request->session()->get('id','-1');
 
         $mascotas = DB::table("mascotas")
             ->where("id","=", $id)
             ->where("id_usuarioDuenio" ,"=",$idDuenio)
             ->get();
-        
+
 
         $mascota = $mascotas->last();
-        
+
         $parametros =[
             'sesion' => $sesionIniciada,
             'username' => $username,
-            'admin' => $usuarioAdmin, 
+            'admin' => $usuarioAdmin,
             'mascota' => $mascota,
         ];
-        
+
         if($sesionIniciada){
             if(count($mascotas) > 0){
                 return view('mascotaParticular', $parametros);
@@ -138,7 +138,7 @@ class MascotasController extends Controller
             return redirect('/login');
         }
 
-        
+
     }
 
     public function formularioMascota(Request $request)
@@ -147,20 +147,20 @@ class MascotasController extends Controller
         $sesionIniciada = $request->session()->has('username');
         $usuarioAdmin = $request->session()->has('admin');
         $username = $request->session()->get('username','default');
-        
+
         $parametros =[
             'sesion' => $sesionIniciada,
             'username' => $username,
             'admin' => $usuarioAdmin
         ];
-        
+
         if($sesionIniciada){
             return view('formularioRegistroMascota', $parametros);
         }else{
             return redirect('/login');
         }
 
-        
+
     }
 
     public function registrarMascota(Request $request)
@@ -175,15 +175,15 @@ class MascotasController extends Controller
 
 
         $username = $request->session()->get('username','default');
-        
+
         $usuarioCreado = DB::table("usuarios")
             ->where("username","=", $username)
             ->get();
-        
+
         $persona = $usuarioCreado->last();
         try{
             DB::table("mascotas")->insert([
-                "id_usuarioDuenio" => intval($persona->id),    
+                "id_usuarioDuenio" => intval($persona->id),
                 "nombre" => $nombre,
                 "perdido" => 0,
                 "tipoAnimal" => $tipoAnimal,
@@ -194,11 +194,11 @@ class MascotasController extends Controller
                 "edad" => intval($edad)
             ]);
 
-            return redirect('/');
+            return response()->json("salio todo bien", 200);
 
         }catch(Exception){
 
-            return redirect('/mascotas/nueva');
+            return response()->json("no salio todo bien", 419);
         }
     }
 
@@ -213,7 +213,7 @@ class MascotasController extends Controller
         }else{
             $valor = 0;
         }
-        
+
 
         try{
 

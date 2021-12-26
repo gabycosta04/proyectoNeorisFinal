@@ -14,28 +14,36 @@ class AdopcionController extends Controller
     public function mostrarAdopciones(Request $request)
     {
 
+        $tipoAnimal = $request->get("tipoAnimal","");
+        $sexo = $request->get("sexo","");
+        $tamanio = $request->get("tamanio","");
+
+
         $sesionIniciada = $request->session()->has('username');
         $usuarioAdmin = $request->session()->has('admin');
         $username = $request->session()->get('username','default');
-        
+
         $adopciones = DB::table("adopcion")
             ->where("aprobado","=", 1)
+            ->where("tipoAnimal","LIKE", "%".$tipoAnimal."%")
+            ->where("sexo","LIKE", "%".$sexo."%")
+            ->where("tamanio","LIKE", "%".$tamanio."%")
             ->get();
-        
+
         $parametros =[
             'sesion' => $sesionIniciada,
             'username' => $username,
             'admin' => $usuarioAdmin,
             'adopciones' => $adopciones
         ];
-        
+
         if($sesionIniciada){
             return view('adopciones', $parametros);
         }else{
             return redirect('/login');
         }
 
-        
+
     }
 
 
@@ -44,13 +52,13 @@ class AdopcionController extends Controller
 
         $sesionIniciada = $request->session()->has('username');
         $usuarioAdmin = $request->session()->has('admin');
-        $username = $request->session()->get('username','default'); 
-         
+        $username = $request->session()->get('username','default');
+
 
         $adopciones = DB::table("adopcion")
             ->where("id","=", $id)
             ->get();
-        
+
 
         $adopcion = $adopciones->last();
 
@@ -59,22 +67,22 @@ class AdopcionController extends Controller
             ->get();
 
         $adoptante = $adoptantes->last();
-        
+
         $parametros =[
             'sesion' => $sesionIniciada,
             'username' => $username,
-            'admin' => $usuarioAdmin, 
+            'admin' => $usuarioAdmin,
             'adopcion' => $adopcion,
             'adoptante' => $adoptante
         ];
-        
-        if($sesionIniciada){ 
+
+        if($sesionIniciada){
             return view('adopcionParticular', $parametros);
         }else{
             return redirect('/login');
         }
 
-        
+
     }
 
     public function formularioAdopcion(Request $request)
@@ -83,20 +91,20 @@ class AdopcionController extends Controller
         $sesionIniciada = $request->session()->has('username');
         $usuarioAdmin = $request->session()->has('admin');
         $username = $request->session()->get('username','default');
-        
+
         $parametros =[
             'sesion' => $sesionIniciada,
             'username' => $username,
             'admin' => $usuarioAdmin
         ];
-        
+
         if($sesionIniciada){
             return view('formularioRegistroAdopcion', $parametros);
         }else{
             return redirect('/login');
         }
 
-        
+
     }
 
     public function registrarAdopcion(Request $request)
@@ -108,21 +116,21 @@ class AdopcionController extends Controller
         $sexo = $request->post("sexo");
         $size = $request->post("tamanio");
         $foto = $request->post("foto");
-        $estado = $request->post("descripcion");
+        $estado = $request->post("estado");
         $edad = $request->post("edad");
 
 
         $username = $request->session()->get('username','default');
-        
+
         $usuarioCreado = DB::table("usuarios")
             ->where("username","=", $username)
             ->get();
-        
+
         $persona = $usuarioCreado->last();
         $noAprobado = 0;
         try{
             DB::table("adopcion")->insert([
-                "id_usuarioRescatista" => intval($persona->id),    
+                "id_usuarioRescatista" => intval($persona->id),
                 "nombre" => $nombre,
                 "tipoAnimal" => $tipoAnimal,
                 "raza" => $raza,
@@ -134,11 +142,11 @@ class AdopcionController extends Controller
                 "edad" => intval($edad)
             ]);
 
-            return redirect('/');
+            return response()->json("salio todo bien", 200);
 
         }catch(Exception){
 
-            echo "hay un error";
+            return response()->json("no salio todo bien", 419);
         }
     }
 }

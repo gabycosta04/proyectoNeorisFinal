@@ -13,42 +13,42 @@ class SessionController extends Controller
         $sesionIniciada = $request->session()->has('username');
         $usuarioAdmin = $request->session()->has('admin');
         $username = $request->session()->get('username','default');
-        
+
         $parametros =[
             'sesion' => $sesionIniciada,
             'username' => $username,
             'admin' => $usuarioAdmin
         ];
-        
+
         if($sesionIniciada){
             return redirect('/');
         }else{
             return view('inicioSesion', $parametros);
         }
 
-        
+
     }
 
     public function formularioRegistrarse(Request $request){
-        
+
 
         $sesionIniciada = $request->session()->has('username');
         $usuarioAdmin = $request->session()->has('admin');
         $username = $request->session()->get('username','default');
-        
+
         $parametros =[
             'sesion' => $sesionIniciada,
             'username' => $username,
             'admin' => $usuarioAdmin
         ];
-        
+
         if($sesionIniciada){
             return redirect('/');
         }else{
             return view('registrarUsuario', $parametros);
         }
-        
-        
+
+
 
     }
 
@@ -61,18 +61,20 @@ class SessionController extends Controller
             ->where("username","=", $usuario)
             ->where("password","=", $contra)
             ->get();
-        
+
         $usuarioAdmin = DB::table("usuarios")
             ->join("administradores","id","=","id_usuario")
             ->where("username","=", $usuario)
             ->get();
 
         $persona = $usuarioCreado->last();
-        
-        $id = $persona->id;
+
+
 
 
         if(count($usuarioCreado) > 0){
+
+            $id = $persona->id;
             $request->session()->put('username',$usuario);
             /* esto lo voy a usar para mostrar las mascotas de un cierto usuario */
             $request->session()->put('id',$id);
@@ -81,7 +83,7 @@ class SessionController extends Controller
                 $request->session()->put('admin',$usuario);
             }
             return redirect('/');
-        }else{     
+        }else{
             return redirect('/login');
         }
 
@@ -110,7 +112,7 @@ class SessionController extends Controller
 
 
             DB::table("usuarios")->insert([
-                
+
                 "username" => $usuario,
                 "password" => $contra,
 
@@ -121,19 +123,19 @@ class SessionController extends Controller
                 "mail" => $mail,
                 "telefono" => $telefono
             ]);
-    
+
             return redirect('/login');
 
         }catch(Exception){
 
             return redirect('/register');
         }
-        
+
 
     }
 
     public function logOut(Request $request){
-        
+
         $request->session()->flush();
         return redirect('/login');
     }

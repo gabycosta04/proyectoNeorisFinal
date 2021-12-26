@@ -10,9 +10,9 @@
 @section('contenidoPrincipal')
 
     <section>
-    
+
         <section class="form-register">
-            <form name="login-form" class="login-form" action="" method="post">
+            <form name="login-form" class="login-form" action="/proyectoNeoris/proyectoNeorisFinal/proyectoWEB/public/login" method="post">
             @csrf
                 <h4>¡Inicia sesión!</h4>
                 <input class="controls" type="username" name="username" id="username" placeholder="Ingrese su Username">
@@ -21,6 +21,6 @@
                 <p><a href="/proyectoNeoris/proyectoNeorisFinal/proyectoWEB/public/register">¿No tienes una cuenta? Registrate</a></p>
             </form>
         </section>
-    </section>    
+    </section>
 
 @endsection

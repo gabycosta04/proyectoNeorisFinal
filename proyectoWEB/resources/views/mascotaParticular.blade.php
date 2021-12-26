@@ -9,7 +9,7 @@
 
 
 @section('contenidoPrincipal')
-    
+
     <section>
         <div>
             <h2 align="center">Informacion sobre la mascota</h2>
@@ -18,8 +18,8 @@
 
         <br>
         <br>
-      
-    
+
+
 
         <div class="mascota" align = "center">
             <img src="{{ $mascota->foto }}" width="200" height="200">
@@ -31,17 +31,17 @@
                 <h6>Sexo: {{$mascota->sexo}}</h6>
                 <h6>Tamaño: {{$mascota->tamanio}}</h6>
                 <h6>Edad: {{$mascota->edad}}</h6>
-                
+
                 <form name="admin-form" class="admin-form formulario" action="/proyectoNeoris/proyectoNeorisFinal/proyectoWEB/public/mascotas/{{$mascota->id}}" method="post">
                 @csrf
                 <input type="hidden" class="btn btn-primary btn-block" name="id" id="id" value= "{{$mascota->id}}"/>
                 @if($mascota->perdido == 0)
-                    <input type="submit" class="btn btn-primary btn-block" name="perdido" id="perdido" value= "Reportar Perdido"/>
+                    <button type="submit" class="btn btn-danger" name="perdido" id="perdido" value= "Reportar Perdido">Reportar Perdido</button>
                 @else
-                    <input type="submit" class="btn btn-primary btn-block" name="perdido" id="perdido" value= "Reportar Encontrado"/>
+                    <button type="submit" class="btn btn-success" name="perdido" id="perdido" value= "Reportar Encontrado">Reportar Encontrado</button>
                 @endif
                 </form>
-                
+
             </div>
         </div>
     </section>
