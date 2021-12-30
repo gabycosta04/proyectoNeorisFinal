@@ -14,6 +14,7 @@
       <section class="portafolio">
             <div class="contenedor">
                 <h2 class="titulo">BUSCAR MASCOTAS</h2>
+
                 <div class="conteiner">
                 <div class="row">
                     <div class="galeria-port">

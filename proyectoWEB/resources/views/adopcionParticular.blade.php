@@ -3,23 +3,22 @@
 @section('header')
     <section class="textos-header">
       <h1>&#128525 ¡Tu media naranja te espera! &#128525</h1>
-      <h2 align="center">&#128075 &#128075 ¡Dile Hola a: {{$adopcion->nombre}}! &#128075 &#128075</h2>
+      <h2 class="titulo">&#128075 &#128075 ¡Dile Hola a: {{$adopcion->nombre}}! &#128075 &#128075</h2>
     </section>
 @endsection
 
 
 @section('contenidoPrincipal')
-    
+
     <section>
         <div>
-            <h2 align="center">Informacion sobre la mascota</h2>
-            <h4 align="center">Dele oportunidad a una nueva mascota a entrar en tu vida</h4>  
+            <h4 class="titulo">Dele oportunidad a una nueva mascota a entrar en tu vida</h4>
         </div>
 
         <br>
         <br>
-      
-    
+
+
 
         <div class="mascota" align = "center">
             <img src="{{ $adopcion->foto }}" width="200" height="200">
@@ -32,23 +31,21 @@
                 <h6>Tamaño: {{$adopcion->tamanio}}</h6>
                 <h6>Edad: {{$adopcion->edad}}</h6>
                 <h6>Descripcion: {{$adopcion->estado}}</h6>
-                
+
             </div>
 
             <div class="duenio">
-                <br>
-                <br>
-                <h2 align="center">Informacion sobre el adoptante</h2>
+                <h2 class="titulo">Informacion sobre el adoptante</h2>
                 <h6>Nombre: {{$adoptante->nombre}}</h6>
                 <h6>Apellido: {{$adoptante->apellido}}</h6>
                 <h6>Ciudad: {{$adoptante->ciudad}}</h6>
                 <h6>E-Mail: {{$adoptante->mail}}</h6>
                 <h6>Telefono: {{$adoptante->telefono}}</h6>
-                
+
             </div>
 
-            
-        
+
+
         </div>
     </section>
 @endsection

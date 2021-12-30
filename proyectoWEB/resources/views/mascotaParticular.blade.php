@@ -12,8 +12,7 @@
 
     <section>
         <div>
-            <h2 align="center">Informacion sobre la mascota</h2>
-            <h2 align="center">Actualiza la situacion de tus mascotas</h2>
+            <h4 class="titulo">Actualiza la situacion de tus mascotas</h4>
         </div>
 
         <br>
@@ -23,7 +22,6 @@
 
         <div class="mascota" align = "center">
             <img src="{{ $mascota->foto }}" width="200" height="200">
-
             <div class="datos">
                 <h6>Nombre: {{$mascota->nombre}}</h6>
                 <h6>Tipo de animal: {{$mascota->tipoAnimal}}</h6>

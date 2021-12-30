@@ -3,7 +3,7 @@
 @section('header')
     <section class="textos-header">
       <h1>¡Toma el poder y controla que todo sea correcto!</h1>
-      <h2 align="center">Llego el momento de validar publicaciones &#129299</h2>
+      <h2>Llego el momento de validar publicaciones &#129299</h2>
     </section>
 @endsection
 
@@ -13,18 +13,18 @@
 <link href="{{ asset('/css/admin.css') }}" rel="stylesheet" type="text/css">
 
 @section('contenidoPrincipal')
-    
+
 
     <section>
-      <h2 align="center">ADOPCIONES DISPONIBLES</h2>
-        
+      <h2 class="titulo">ADOPCIONES DISPONIBLES</h2>
+
       <table>
             <thead>
-                <tr align="center">
+                <tr>
                     <th>
                         Id
                     </th>
-                    
+
                     <th>
                         Nombre
                     </th>
@@ -51,47 +51,47 @@
             <tbody>
 
             @foreach($adopciones as $adopcion)
-            
+
                 <form name="admin-form" class="admin-form formulario" action="/proyectoNeoris/proyectoNeorisFinal/proyectoWEB/public/adopciones/administrar" method="post">
                 @csrf
-                    <tr align="center">
+                    <tr>
                         <td/>
                             <!-- esto es para que se suba en el formulario el id de la adopcion-->
                             <input type="hidden" class="btn btn-primary btn-block" name="id" id="id" value= "{{$adopcion->id}}"/>
-                            <a href="/proyectoNeoris/proyectoNeorisFinal/proyectoWEB/public/adopciones/{{ $adopcion->id }}" >{{ $adopcion->id }}</a>          
+                            <a href="/proyectoNeoris/proyectoNeorisFinal/proyectoWEB/public/adopciones/{{ $adopcion->id }}" >{{ $adopcion->id }}</a>
                         </td>
 
                         <td>
-                            <p>{{$adopcion->nombre}}</p>          
+                            <p>{{$adopcion->nombre}}</p>
                         </td>
 
-                        <td>   
-                            <p>{{$adopcion->tipoAnimal}}</p>       
+                        <td>
+                            <p>{{$adopcion->tipoAnimal}}</p>
                         </td>
 
-                        <td>   
-                            <p>{{$adopcion->estado}}</p>       
+                        <td>
+                            <p>{{$adopcion->estado}}</p>
                         </td>
-                        
+
                         <td>
                             <img src="{{ $adopcion->foto }}" width="100" height="100">
                         </td>
 
-                        <td>    
+                        <td>
                             @if($adopcion->aprobado == 0)
-                                <input type="submit" class="btn btn-primary btn-block" name="aprobado" id="aprobado" value= "Habilitar"/>
+                                <button type="submit" class="btn btn-success" name="aprobado" id="aprobado" value= "Habilitar">Habilitar</button>
                             @else
-                                <input type="submit" class="btn btn-primary btn-block" name="aprobado" id="aprobado" value= "Deshabilitar"/>
+                                <button type="submit" class="btn btn-danger" name="aprobado" id="aprobado" value= "Deshabilitar">Deshabilitar</button>
                             @endif
                         </td>
                     </tr>
                 </form>
             @endforeach
-                
+
             </tbody>
         </table>
 
-        
-            
+
+
     </section>
 @endsection

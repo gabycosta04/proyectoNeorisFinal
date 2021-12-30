@@ -22,7 +22,7 @@
                     <img src="{{ asset('src/Sofia.jpg') }}" alt="">
                     <div class="contenido-texto-card">
                         <h4></h4>
-                        <a href="https://www.linkedin.com/in/cristian-gabriel-costa-1bb64a1b2/" style="color:#00A0C6; text-decoration:none; cursor:pointer;">Sofia Agostina Balestrieri</a>
+                        <a href="https://www.linkedin.com/in/sofia-agostina-balestrieri-b239471ba/" style="color:#00A0C6; text-decoration:none; cursor:pointer;">Sofia Agostina Balestrieri</a>
                     </div>
                 </div>
                 <div class="card">
